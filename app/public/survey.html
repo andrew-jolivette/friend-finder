@@ -153,7 +153,7 @@
           <option value="5">5 (Stongly Agree)</option>
           </select>
       </div>
-      <button type="submit" class="btn btn-primary" id="surveySubmit"><i class='fas fa-check-circle'></i> Submit</button>
+      <button type="submit" class="btn btn-primary" id="submit" data-container="body" data-toggle="popover" data-placement="right" data-content=""><i class='fas fa-check-circle'></i> Submit</button>
     </form>
   </div>
   <hr>
@@ -162,5 +162,53 @@
         <a href="/api/friends">API Friends List</a> | <a href='https://github.com/andrew-jolivette/friend-finder'><i class="fab fa-github"></i> GitHub Repo</a>
       </div>
     </footer>
+    <script>
+      $(function () {
+        $('[data-toggle="popover"]').popover()
+      })
+
+      $('#submit').on('click', function(event) {
+        event.preventDefault();
+
+        const validateForm = function() {
+          var isValid = true;
+
+          $('.form-control').each(function() {
+            if ($(this).val() === "") {
+              isValid = false;
+            }
+          });
+          return isValid;
+        }
+
+        if(validateForm()) {
+          $('#submit').attr("data-content", "");
+          console.log('good') 
+
+          const userData = {
+            name: $('#name').val(),
+            photo: $('#photo').val(),
+            scores: [
+              parseInt($('#q1').val()),
+              parseInt($('#q2').val()),
+              parseInt($('#q3').val()),
+              parseInt($('#q4').val()),
+              parseInt($('#q5').val()),
+              parseInt($('#q6').val()),
+              parseInt($('#q7').val()),
+              parseInt($('#q8').val()),
+              parseInt($('#q9').val()),
+              parseInt($('#q10').val()),
+            ]
+          };
+          
+          $.post("/api/friends", userData, function(data) {
+            
+          });
+        } else {
+          $('#submit').attr("data-content", "Please make sure all fields are completely filled out.");
+        }
+      })
+    </script>
 </body>
 </html>
