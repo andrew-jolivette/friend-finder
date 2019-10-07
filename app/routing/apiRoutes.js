@@ -7,10 +7,10 @@ module.exports = (app) => {
 
   app.post('/api/friends', (req, res) => {
     console.log(req.body);
-    
+
     let bestMatch = {
       name: "",
-      picture: "",
+      photo: "",
       friendScore: 1000
     }
 
@@ -21,13 +21,21 @@ module.exports = (app) => {
 
     for (let i = 0; i < friends.length; i++) {
       scoreDifference = 0;
-      console.log(`friend ${i}`)
-      // for (let y = 0; y < friends[i].scores.length; y++){
-      //   console.log(`friend score ${y}`)
-      //   scoreDifference += Math.abs(parseInt(friends[i].score[y]) - parseInt(userScore[y]));
-      // }
-      console.log(scoreDifference)
+      // console.log(`friend ${i}`)
+
+      for (let j = 0; j < friends[i].scores.length; j++){
+        // console.log(`friend score ${parseInt(friends[i].scores[j])}`)
+        scoreDifference += Math.abs(parseInt(friends[i].scores[j]) - parseInt(userScore[j])); 
+      }
+      console.log(`score difference ${scoreDifference}`)
+      if (scoreDifference <= bestMatch.friendScore){
+        bestMatch.name = friends[i].name;
+        bestMatch.photo = friends[i].photo;
+        bestMatch.friendScore = scoreDifference;
+      }
     }
+    friends.push(userData);
+
     res.json(bestMatch);  
   })
 };
