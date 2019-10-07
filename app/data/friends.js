@@ -1,8 +1,8 @@
 var friends = [
   
   {
-    "name":"Ahmed",
-    "photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+    "name":"Lelia Ahmed",
+    "photo":"http://lorempixel.com/output/people-q-c-400-400-7.jpg",
     "scores":[
         5,
         1,
@@ -66,7 +66,7 @@ var friends = [
   },
   {
     "name": "Lou Ritter",
-    "photo": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAkDAAAAJDhhZTI5NTk2LWQzZjUtNDJjZi1hMTM2LTQ3ZjNmYjE0YmY2NA.jpg",
+    "photo": "http://lorempixel.com/output/people-q-c-400-400-2.jpg",
     "scores": [
         4,
         3,
@@ -82,7 +82,7 @@ var friends = [
   },
   {
     "name": "Jordan Biason",
-    "photo": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAisAAAAJGUxYzc4YzA0LWQxMzUtNGI4NS04YTFiLTkwYzM0YTZkNzA2NA.jpg",
+    "photo": "http://lorempixel.com/output/people-q-c-500-500-5.jpg",
     "scores": [
         4,
         4,
